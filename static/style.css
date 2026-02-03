@@ -3,7 +3,7 @@ html, body{
 }
 
 p {
-    color: darkblue;
+    color: darkred;
     text-align:center;
     font-size: 2.2rem;
     font-family: cursive;
@@ -17,21 +17,21 @@ h1 {
 
 h2{
     font-family: cursive;
-    color: darkblue;
+    color: darkred;
 }
 
 body {
     background-color: whitesmoke;
     text-align: center;
-    border-left: 50px solid blue;
-    border-right: 50px solid blue;
+    border-left: 50px solid red;
+    border-right: 50px solid red;
     height: auto;
 }
 
 a{
     text-align: center;
     font-family: Monospace Courier 'Times New Roman', Times, serif;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: blue;
     text-decoration: underline;
 }
@@ -44,6 +44,11 @@ input{
 button{
     background-color: #d7d8fa;
     border-color:#c7c4de;
+}
+
+.butao{
+    border-radius: bold 10px;
+    border-color: darkblue;
 }
 
 .Notas{
