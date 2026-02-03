@@ -1,20 +1,67 @@
+html, body{
+    height:40px;
+}
+
 p {
-    color:darkred;
+    color: darkblue;
     text-align:center;
     font-size: 2.2rem;
+    font-family: cursive;
 }
 
 h1 {
     text-align: center;
+    font-size: 2.5rem;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+h2{
+    font-family: cursive;
+    color: darkblue;
 }
 
 body {
     background-color: whitesmoke;
+    text-align: center;
+    border-left: 50px solid blue;
+    border-right: 50px solid blue;
+    height: auto;
 }
 
 a{
     text-align: center;
+    font-family: cursive;
     font-size: 1.5rem;
-    color: red;
+    color: blue;
+    text-decoration: underline;
+    border-color: blue;
+    border-radius: 10px bold;
 }
 
+input{
+    background-color: #d7d8fa;
+    border-color:#c7c4de;
+}
+
+button{
+    background-color: #d7d8fa;
+    border-color:#c7c4de;
+}
+
+.Notas{
+    position: fixed;
+    font-size: 2rem;
+    color: #9f2c3f;
+    animation: piscar 1.5s infinite alternate;
+    z-index: 1000;
+
+        }
+
+.Notas.esquerda { left: 10px; top: 20%; }
+.Notas.direita { right: 10px; top: 40%; }
+
+@keyframes piscar {
+0% { opacity: 0.2; transform: scale(0.9) rotate(0deg); }
+50% { opacity: 1; transform: scale(1.1) rotate(20deg); }
+100% { opacity: 0.2; transform: scale(0.9) rotate(-20deg); }
+        }

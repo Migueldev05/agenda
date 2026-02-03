@@ -1,6 +1,22 @@
 {% extends "base.html" %}
 <link rel="stylesheet" href="{{url_for('static', filename= 'style.css') }}">
 {% block content %}
-    <p class="tittle">Seja bem-vindo</p>
-    <a class="agenda" href="/agenda">Agenda</a>
+    <p>Seja bem-vindo</p>
+    <br>
+    <h2>Bem vindo, essa pagina é destinada a uma agenda teste. <br> divirta-se!</h2>
+    <br>
+    <br>
+    <footer><a href="/agenda">Agenda</a></footer>
+
+    <!-- Notas na lateral esquerda -->
+    <div class="Notas esquerda" style="top: 7%;">📄</div>
+    <div class="Notas esquerda" style="top: 30%;">📄</div>
+    <div class="Notas esquerda" style="top: 65%;">📄</div>
+    <div class="Notas esquerda" style="top: 90%;">📄</div>
+
+    <!-- Notas na lateral direita -->
+    <div class="Notas direita" style="top: 7%;">📄</div>
+    <div class="Notas direita" style="top: 30%;">📄</div>
+    <div class="Notas direita" style="top: 65%;">📄</div>
+    <div class="Notas direita" style="top: 90%;">📄</div>
 {% endblock %}
