@@ -12,6 +12,9 @@ body {
     background-color: whitesmoke;
 }
 
-body{
-    background-color: whitesmoke;
+a{
+    text-align: center;
+    font-size: 1.5rem;
+    color: red;
 }
+
