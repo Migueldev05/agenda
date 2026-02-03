@@ -30,12 +30,10 @@ body {
 
 a{
     text-align: center;
-    font-family: cursive;
+    font-family: Monospace Courier 'Times New Roman', Times, serif;
     font-size: 1.5rem;
     color: blue;
     text-decoration: underline;
-    border-color: blue;
-    border-radius: 10px bold;
 }
 
 input{
