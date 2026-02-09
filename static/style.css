@@ -47,6 +47,7 @@ input{
     border-color:#dec4c4;
     font-size: 1rem;
     border-radius: 5px;
+    margin-left: 100px;
 }
 
 button{
@@ -56,6 +57,12 @@ button{
     border-radius: 5px;
 }
 
+.butao{
+    font-size: 1rem;
+    color: red;
+    text-align: center;
+    text-decoration: underline;
+}
 
 .Notas{
     position: fixed;
