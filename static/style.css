@@ -16,7 +16,7 @@ title{
 
 h1 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.7rem;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
@@ -64,6 +64,13 @@ button{
     text-decoration: underline;
 }
 
+label{
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+
+/* área das notas */
 .Notas{
     position: fixed;
     font-size: 2rem;
