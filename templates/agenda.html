@@ -9,7 +9,7 @@
                 aria-describedby="ajudaNomeTarefa" value="{{ tarefa_selecionada.titulo_tarefa if tarefa_selecionada else '' }}" required>
             <div id="ajudaNomeTarefa" class="form-text">Use um nome de tarefa que seja descritivo.</div>
         </div>
-
+        <br>
         <div class="mb-3">
             <label for="data-conclusao" class="form-label">Data de conclusão</label>
             <div class="d-flex align-items-center gap-2">
@@ -52,7 +52,9 @@
     {% else %}
 
         <p>Nenhuma tarefa cadastrada</p>
-
+        <br>
+        <a href="/lista">Lista Must Watch</a>
+        <br>
     {% endif %}
 
 {% endblock %}
