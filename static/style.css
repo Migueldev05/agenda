@@ -1,90 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 html, body{
-    height:40px;
-}
-
-title{
-    font-size: 2.8rem;
-}
-
-.bem-vindo{
-    color: darkred;
-    text-align:center;
-    font-size: 2.2rem;
-    font-family:'Courier New', Courier, monospace;
-    font-weight: bold;
-}
-
-h1 {
     text-align: center;
-    font-size: 2.7rem;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: #464646;
+    border-radius: 10px;
+    font-family: cursive;
 }
 
-h2{
-    font-family:'Courier New', Courier, monospace;
-    font-weight: bold;
-    color: darkred;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
 }
-
-body {
-    background-color: whitesmoke;
-    text-align: center;
-    border-left: 55px solid red;
-    border-right: 55px solid red;
-    height: auto;
-}
-
-a{
-    text-align: center;
-    font-family: Monospace Courier 'Times New Roman', Times, serif;
-    font-size: 1.8rem;
-    color: #0000ff;
-    text-decoration: underline;
-}
-
-input{
-    background-color: #fad7d7;
-    border-color:#dec4c4;
-    font-size: 1rem;
-    border-radius: 5px;
-    margin-left: 100px;
-}
-
-button{
-    font-size: 2.2rem;
-    background-color: #fad7d7;
-    border-color:#dec4c4;
-    border-radius: 5px;
-}
-
-.butao{
-    font-size: 1rem;
-    color: red;
-    text-align: center;
-    text-decoration: underline;
-}
-
-label{
-    text-align: center;
-    font-size: 1.2rem;
-}
-
-
-/* área das notas */
-.Notas{
-    position: fixed;
-    font-size: 2rem;
-    color: #9f2c3f;
-    animation: piscar 1.5s infinite alternate;
-    z-index: 1000;
-
-        }
-
-.Notas.esquerda { left: 10px; top: 20%; }
-.Notas.direita { right: 10px; top: 40%; }
-
-@keyframes piscar {
-0% { opacity: 0.2; transform: scale(0.9) rotate(0deg); }
-50% { opacity: 1; transform: scale(1.1) rotate(20deg); }
-100% { opacity: 0.2; transform: scale(0.9) rotate(-20deg); }
-        }

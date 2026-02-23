@@ -5,83 +5,60 @@
 
         <div class="mb-3">
             <label for="titulo-tarefa" class="form-label">Título da tarefa</label>
-            <input type="text" class="form-control" name="titulo-tarefa" id="titulo-tarefa" aria-describedby="ajudaNomeTarefa" value="{{ tarefa_selecionada.titulo_tarefa if tarefa_selecionada else '' }}" required>
+            <input type="text" class="form-control" name="titulo-tarefa" id="titulo-tarefa"
+                aria-describedby="ajudaNomeTarefa" value="{{ tarefa_selecionada.titulo_tarefa if tarefa_selecionada else '' }}" required>
             <div id="ajudaNomeTarefa" class="form-text">Use um nome de tarefa que seja descritivo.</div>
         </div>
 
         <div class="mb-3">
             <label for="data-conclusao" class="form-label">Data de conclusão</label>
-            <input type="date" class="form-control" id="data-conclusao" name="data-conclusao" id="data-conclusao" value="{{ tarefa_selecionada.data-conclusao if tarefa_selecionada else '' }}">
+            <div class="d-flex align-items-center gap-2">
+                <button type="button" class="btn btn-primary" id="btnHoje">Hoje</button>
+                <button type="button" class="btn btn-primary" id="btnAmanha">Amanha</button>
+                <input type="date" class="form-control" name="data-conclusao" id="data-conclusao" value="{{ tarefa_selecionada.data_conclusao if tarefa_selecionada else '' }}">
+            </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Adicionar</button>
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-
-        <button type="sibmit" class=" btn btn-primary"></button>
-
-        {% if tarefa_selecionada %}
-            <a href="{{ url_for('agenda') }}" class="btn btn-secondary">Cancelar</a>
-        {% endif %}
-
+        <div class="my-4">
+            <button type="submit" class="btn btn-success">Salvar</button>
+    
+            {% if tarefa_selecionada %}
+                <a href="{{ url_for('agenda') }}" class="btn btn-secondary">Cancelar</a>
+            {% endif %}
+        </div>
     </form>
 
-        <!-- Notas na lateral esquerda -->
-        <div class="Notas esquerda" style="top: 7%;">📄</div>
-        <div class="Notas esquerda" style="top: 30%;">📄</div>
-        <div class="Notas esquerda" style="top: 46%;">📄</div>
-        <div class="Notas esquerda" style="top: 65%;">📄</div>
-        <div class="Notas esquerda" style="top: 90%;">📄</div>
+    <h2 class="my-3">Lista de Tarefas</h2>
 
-        <!-- Notas na lateral direita -->
-        <div class="Notas direita" style="top: 7%;">📄</div>
-        <div class="Notas direita" style="top: 30%;">📄</div>
-        <div class="Notas direita" style="top: 46%;">📄</div>
-        <div class="Notas direita" style="top: 65%;">📄</div>
-        <div class="Notas direita" style="top: 90%;">📄</div>
+    {% if tarefas %}
 
-    <h2>Lista de Tarefas</h2>
+        <ul class="list-group list-group-flush">
+            {% for tarefa in tarefas %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="w-25">
+                        {{ tarefa.titulo_tarefa }}
+                    </span>
+                    <span>
+                        📆 {{ tarefa.data_conclusao }}
+                    </span>
+                    <span>
+                        <a href="{{ url_for('update', idTarefa=tarefa.id_tarefa) }}" class="btn btn-outline-primary">✏️ Editar</a>
+                        <a href="{{ url_for('delete', idTarefa=tarefa.id_tarefa) }}" class="btn btn-outline-danger">🗑️ Apagar</a>
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
 
-        {% if tarefas %}
+    {% else %}
 
-            <ul>
-                {% for tarefa in tarefas %}
-                    <li>{{ tarefa.titulo_tarefa }} - {{ tarefa.data_conclusao }} <a href="{{ url_for('delete', idTarefa=tarefa.id_tarefa) }}">Apagar</a>
-                        <a href="{{ url_for('update', idTarefa=tarefa.id_tarefa) }}"></a>
-                    <!-- Controla para editar -->
-                    </li>
-                {% endfor %}
-            </ul>
+        <p>Nenhuma tarefa cadastrada</p>
 
-        {% else %}
-
-            <p>Nenhuma tarefa cadastrada</p>
-
-        {% endif %}
+    {% endif %}
 
 {% endblock %}
 
-
-<!--métodos HTTP:
-GET ->"pega"(recupera/obtem) as informações
-POST -> "envia" (cadastra/imclui/adiciona) as informações
-UPDATE/PATCH -> "atualiza" as informações (UPDATE)
-DELETE -> "apaga" as informações (DELETE)
-
-CRUD -> CREATE, READ, UPDATE, DELETE
--->
-
-<!--
-2XX - Sucesso
-3XX - Sucesso, mas redirecionado
-4XX - Não encontrado (falha na REQUISIÇÃO)
-5XX - Erro do servidor (falha na RESPOSTA)
--->
+<!-- Métodos HTTP:
+    GET -> "pega" (recupera/obtém) as informações (READ)
+    POST -> "envia" (cadastra/inclui/adiciona) as informações (CREATE)
+    UPDATE/PATCH -> "atualiza" as informações (UPDATE)
+    DELETE -> "apaga" as informações (DELETE)

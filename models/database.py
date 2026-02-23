@@ -3,24 +3,24 @@ from types import TracebackType
 from typing import Any, Self, Optional, Type
 from dotenv import load_dotenv
 import traceback
-import os 
+import os
 
 load_dotenv() # Procura um arquivo .env com variáveis
 DB_PATH = os.getenv('DATABASE', './data/tarefas.sqlite3')
 
-def init_db(db_name: str= DB_PATH) -> None:
+def init_db(db_name: str = DB_PATH) -> None:
     with connect(db_name) as conn:
         conn.execute("""
-        CREATE TABLE IF NOT EXISTS tarefas(
+        CREATE TABLE IF NOT EXISTS tarefas (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             titulo_tarefa TEXT NOT NULL,
-            data_conclusao TEXT                    
+            data_conclusao TEXT  
         );
         """)
 
 class Database:
     """
-        Classe que gerencia conexões e operações com um banco de dados SQLite. Utitliza o protocolo de gerenciamento de contexto para garantir que a conexão seja encerrada corretamente.
+        Classe que gerencia conexões e operações com um banco de dados SQLite. Utiliza o protocolo de gerenciamento de contexto para garantir que a conexão seja encerrada corretamente.
     """
     def __init__(self, db_name: str = DB_PATH) -> None:
         self.connection: Connection = connect(db_name)
@@ -38,22 +38,20 @@ class Database:
     def close(self) -> None:
         self.connection.close()
 
-    
     # Métodos para o gerenciamento de contexto
     # Método de entrada no contexto
     def __enter__(self) -> Self:
-        print('Entrando no contexto...')
         return self
     
     # Método de saída do contexto
     def __exit__(
-            self,
-            exc_type: Optional[Type[BaseException]],
-            exc_value: Optional[BaseException],
+            self, 
+            exc_type: Optional[Type[BaseException]], 
+            exc_value: Optional[BaseException], 
             tb: Optional[TracebackType]) -> None:
-
+        
         if exc_type is not None:
-            print("Exeção capturada no contexto:")
+            print('Exceção capturada no contexto:')
             print(f'Tipo: {exc_type.__name__}')
             print(f'Mensagem: {exc_value}')
             print('Traceback completo:')
