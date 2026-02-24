@@ -2,9 +2,14 @@
 
 html, body{
     text-align: center;
-    background-color: #34364a;
+    background-color: #b4b7da;
     border-radius: 10px;
     font-family: cursive;
+}
+
+.botao-agenda{
+    font-size: 2rem;
+    text-decoration: underline wavy #1168ff 2px;
 }
 
 * {
