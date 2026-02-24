@@ -6,7 +6,7 @@ class Tarefa:
     """
         Classe para representar uma tarefa, com métodos para salvar, obter, excluir e atualizar tarefas em um banco de dados usando a classe `Database`.
     """
-    def __init__(self: Self, titulo_tarefa: Optional[str], data_conclusao: Optional[str] = None, id_tarefa: Optional[int] = None) -> None:
+    def __init__(self: Self, titulo_tarefa: Optional[str] = '', data_conclusao: Optional[str] = None, id_tarefa: Optional[int] = None) -> None:
         self.titulo_tarefa: Optional[str] = titulo_tarefa
         self.data_conclusao: Optional[str] = data_conclusao
         self.id_tarefa: Optional[int] = id_tarefa
@@ -54,11 +54,10 @@ class Tarefa:
             params: tuple = (self.id_tarefa,)
             resultado: Cursor = db.executar(query, params)
             return resultado
-        
-    def atualizar_tarefa(self) -> Cursor:
+    
+    def atualizar_tarefa(self: Self):
         with Database() as db:
-            query: str = 'UPDATE tarefas SET titulo_tarefa = ?, data_conclusao = ? WHERE id = ?;'
+            query: str = "UPDATE tarefas SET titulo_tarefa = ?, data_conclusao = ? WHERE id = ?;"
             params: tuple = (self.titulo_tarefa, self.data_conclusao, self.id_tarefa)
             resultado: Cursor = db.executar(query, params)
             return resultado
-    
