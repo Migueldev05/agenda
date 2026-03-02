@@ -2,7 +2,6 @@ from models.database import Database
 from typing import Self, Any, Optional
 from sqlite3 import Cursor
 
-
 class Tarefa:
     """
     Classe para representar uma tarefa, com métodos para salvar, obter, excluir e atualizar tarefas em um banco de dados usando a classe `Database`.
@@ -56,7 +55,7 @@ class Tarefa:
             return tarefas
 
     def excluir_tarefa(self) -> Cursor:
-        with Database() as db:
+        with Database() as db: 
             query: str = "DELETE FROM tarefas WHERE id = ?;"
             params: tuple = (self.id_tarefa,)
             resultado: Cursor = db.executar(query, params)
